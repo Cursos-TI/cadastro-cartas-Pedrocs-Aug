@@ -7,8 +7,8 @@ int main()
         CodigodaCarta[4],
         NomedaCidade[30];
     // Variáveis para armazenar os dados numéricos da cidade
-    int População,
-        NumerodePontosTuristicos;
+    unsigned long int População;
+    int NumerodePontosTuristicos;
     // Variáveis para armazenar os cálculos de densidade populacional e PIB per capita
     float Areaemkm,
         PIB,
@@ -22,7 +22,7 @@ int main()
     printf("Insira o Nome da Cidade: \n");
     scanf("%s", NomedaCidade);
     printf("Insira a quantidade populacional \n");
-    scanf("%i", &População);
+    scanf("%lu", &População);
     printf("Insira a área da cidade em quilômetros quadrados \n");
     scanf("%f", &Areaemkm);
     printf("Insira o Produto Interno Bruto da cidade  \n");
@@ -39,7 +39,7 @@ int main()
     printf("Estado: %c \n", Estado);
     printf("Código: %s \n", CodigodaCarta);
     printf("Nome da Cidade: %s \n", NomedaCidade);
-    printf("População: %i \n", População);
+    printf("População: %lu \n", População);
     printf("Área: %2.f km² \n", Areaemkm);
     printf("PIB: %2.f bilhões de reais \n", PIB);
     printf("Número de Pontos Turísticos: %i \n", NumerodePontosTuristicos);
