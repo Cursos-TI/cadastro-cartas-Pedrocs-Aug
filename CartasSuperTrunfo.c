@@ -20,8 +20,8 @@ int main()
           PIBperCapita1;
 
     // Cálculo da densidade populacional e PIB per capita
-    DensidadePopulacional1 = População1 / Areaemkm1;
-    PIBperCapita1 = PIB1 / População1;
+    DensidadePopulacional1 = (float)População1 / Areaemkm1;
+    PIBperCapita1 = PIB1 / (float)População1;
 
     // Super power: Calcula com base na soma de todos os atributos numéricos da cidade
     float SuperPower1 = (float)População1 + Areaemkm1 + PIB1 + (float)NumerodePontosTuristicos1 + PIBperCapita1;
@@ -58,8 +58,8 @@ int main()
           PIBperCapita2;
 
     // Cálculo da densidade populacional e PIB per capita
-    DensidadePopulacional2 = População2 / Areaemkm2;
-    PIBperCapita2 = PIB2 / População2;
+    DensidadePopulacional2 = (float)População2 / Areaemkm2;
+    PIBperCapita2 = PIB2 / (float)População2;
 
     // Super power: Calcula com base na soma de todos os atributos numéricos da cidade
     float SuperPower2 = (float)População2 + Areaemkm2 + PIB2 + (float)NumerodePontosTuristicos2 + PIBperCapita2;
