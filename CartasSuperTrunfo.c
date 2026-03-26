@@ -108,7 +108,6 @@ int main()
             printf("As cidades %s e %s empataram, por terem a mesma população com %lu habitantes. \n", NomedaCidade1, NomedaCidade2, População1);
         }
         break;
-
     case 2:
         if (Areaemkm1 > Areaemkm2)
         {
@@ -164,7 +163,7 @@ int main()
         {
             printf("As cidades %s e %s empataram, por terem a mesma densidade populacional com %.2f habitantes/km². \n", NomedaCidade1, NomedaCidade2, DensidadePopulacional1);
         }
-
+        break;
     case 6:
         if (PIBperCapita1 > PIBperCapita2)
         {
@@ -178,7 +177,7 @@ int main()
         {
             printf("As cidades %s e %s empataram, por terem o mesmo PIB per capita com %.2f reais. \n", NomedaCidade1, NomedaCidade2, PIBperCapita1);
         }
-
+        break;
     case 7:
         if (SuperPower1 > SuperPower2)
         {
@@ -192,7 +191,7 @@ int main()
         {
             printf("As cidades %s e %s empataram, por terem o mesmo Super Power com %.2f pontos. \n", NomedaCidade1, NomedaCidade2, SuperPower1);
         }
-
+        break;
     default:
         printf("Opção inválida. Por favor, escolha um número entre 1 e 7. \n");
         break;
