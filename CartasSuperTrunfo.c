@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 int main()
 {
@@ -79,10 +80,16 @@ int main()
     printf("PIB per Capita: %.2f reais \n", PIBperCapita2);
 
     // Comparação entre as cidades com base em um atributo escolhido pelo usuário
-    int comparacao;
+    int comparacao1, comparacao2,
+        vencedor1 = 0, vencedor2 = 0;
 
-    printf("### Comparação entre as cidades ### \n");
-    printf("Escolha o aributo para compara as cidades: \n");
+    float valorsoma1, valorsoma2,
+        valortotal;
+
+    char AtributoEscolhido1[30], AtributoEscolhido2[30];
+
+    printf("### Primeira Comparação entre as cidades ### \n");
+    printf("Escolha o primeiro atributo para comparar as cidades: \n");
     printf("1 - População \n");
     printf("2 - Área \n");
     printf("3 - PIB \n");
@@ -90,111 +97,115 @@ int main()
     printf("5 - Densidade Populacional \n");
     printf("6 - PIB per Capita \n");
     printf("7 - Super Power \n");
-    scanf("%i", &comparacao);
+    scanf("%i", &comparacao1);
 
-    switch (comparacao)
+    printf("### Segunda Comparação entre as cidades ### \n");
+    printf("Escolha o segundo atributo para comparar as cidades: \n");
+    printf("1 - População \n");
+    printf("2 - Área \n");
+    printf("3 - PIB \n");
+    printf("4 - Número de Pontos Turísticos \n");
+    printf("5 - Densidade Populacional \n");
+    printf("6 - PIB per Capita \n");
+    printf("7 - Super Power \n");
+    scanf("%i", &comparacao2);
+
+    if (comparacao1 == comparacao2)
     {
-    case 1:
-        if (População1 > População2)
+        printf("A opção segunda opção escolhida é igual a primeira, por favor escolha uma opção diferente.\n");
+    }
+    else
+    {
+        switch (comparacao1)
         {
-            printf("Cidade 1 %s venceu a comparação de população, com %lu habitantes. \n", NomedaCidade1, População1);
+        case 1:
+            vencedor1 = População1 > População2 ? 1 : 2;
+            valorsoma1 = População1 > População2 ? População1 : População2;
+            strcpy(AtributoEscolhido1, "População");
+            break;
+        case 2:
+            vencedor1 = Areaemkm1 > Areaemkm2 ? 1 : 2;
+            valorsoma1 = Areaemkm1 > Areaemkm2 ? Areaemkm1 : Areaemkm2;
+            strcpy(AtributoEscolhido1, "Área");
+            break;
+        case 3:
+            vencedor1 = PIB1 > PIB2 ? 1 : 2;
+            valorsoma1 = PIB1 > PIB2 ? PIB1 : PIB2;
+            strcpy(AtributoEscolhido1, "PIB");
+            break;
+        case 4:
+            vencedor1 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? 1 : 2;
+            valorsoma1 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? NumerodePontosTuristicos1 : NumerodePontosTuristicos2;
+            strcpy(AtributoEscolhido1, "Número de Pontos Turísticos");
+            break;
+        case 5:
+            vencedor1 = DensidadePopulacional1 > DensidadePopulacional2 ? 1 : 2;
+            valorsoma1 = DensidadePopulacional1 > DensidadePopulacional2 ? DensidadePopulacional1 : DensidadePopulacional2;
+            strcpy(AtributoEscolhido1, "Densidade Populacional");
+            break;
+        case 6:
+            vencedor1 = PIBperCapita1 > PIBperCapita2 ? 1 : 2;
+            valorsoma1 = PIBperCapita1 > PIBperCapita2 ? PIBperCapita1 : PIBperCapita2;
+            strcpy(AtributoEscolhido1, "PIB per Capita");
+
+            break;
+        case 7:
+            vencedor1 = SuperPower1 > SuperPower2 ? 1 : 2;
+            valorsoma1 = SuperPower1 > SuperPower2 ? SuperPower1 : SuperPower2;
+            strcpy(AtributoEscolhido1, "Super Power");
+            break;
+        default:
+            printf("Opção inválida. Por favor, escolha um número entre 1 e 7. \n");
+            break;
         }
-        else if (População2 > População1)
+
+        switch (comparacao2)
         {
-            printf("Cidade 2 %s venceu a comparação de população, com %lu habitantes. \n", NomedaCidade2, População2);
+        case 1:
+            vencedor2 = População1 > População2 ? 1 : 2;
+            valorsoma2 = População1 > População2 ? População1 : População2;
+            strcpy(AtributoEscolhido2, "População");
+            break;
+        case 2:
+            vencedor2 = Areaemkm1 > Areaemkm2 ? 1 : 2;
+            valorsoma2 = Areaemkm1 > Areaemkm2 ? Areaemkm1 : Areaemkm2;
+            strcpy(AtributoEscolhido2, "Área (km²)");
+            break;
+        case 3:
+            vencedor2 = PIB1 > PIB2 ? 1 : 2;
+            valorsoma2 = PIB1 > PIB2 ? PIB1 : PIB2;
+            strcpy(AtributoEscolhido2, "PIB");
+            break;
+        case 4:
+            vencedor2 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? 1 : 2;
+            valorsoma2 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? NumerodePontosTuristicos1 : NumerodePontosTuristicos2;
+            strcpy(AtributoEscolhido2, "Número de Pontos Turísticos");
+            break;
+        case 5:
+            vencedor2 = DensidadePopulacional1 > DensidadePopulacional2 ? 1 : 2;
+            valorsoma2 = DensidadePopulacional1 > DensidadePopulacional2 ? DensidadePopulacional1 : DensidadePopulacional2;
+            strcpy(AtributoEscolhido2, "Densidade Populacional");
+            break;
+        case 6:
+            vencedor2 = PIBperCapita1 > PIBperCapita2 ? 1 : 2;
+            valorsoma2 = PIBperCapita1 > PIBperCapita2 ? PIBperCapita1 : PIBperCapita2;
+            strcpy(AtributoEscolhido2, "PIB per Capita");
+            break;
+        case 7:
+            vencedor2 = SuperPower1 > SuperPower2 ? 1 : 2;
+            valorsoma2 = SuperPower1 > SuperPower2 ? SuperPower1 : SuperPower2;
+            strcpy(AtributoEscolhido2, "Super Power");
+            break;
+        default:
+            printf("Opção inválida. Por favor, escolha um número entre 1 e 7. \n");
+            break;
         }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem a mesma população com %lu habitantes. \n", NomedaCidade1, NomedaCidade2, População1);
-        }
-        break;
-    case 2:
-        if (Areaemkm1 > Areaemkm2)
-        {
-            printf("Cidade 1 %s venceu a comparação de área, com %.2f km². \n", NomedaCidade1, Areaemkm1);
-        }
-        else if (Areaemkm2 > Areaemkm1)
-        {
-            printf("Cidade 2 %s venceu a comparação de área, com %.2f km². \n", NomedaCidade2, Areaemkm2);
-        }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem a mesma área com %.2f km². \n", NomedaCidade1, NomedaCidade2, Areaemkm1);
-        }
-        break;
-    case 3:
-        if (PIB1 > PIB2)
-        {
-            printf("Cidade 1 %s venceu a comparação de PIB, com %.2f bilhões de reais. \n", NomedaCidade1, PIB1);
-        }
-        else if (PIB2 > PIB1)
-        {
-            printf("Cidade 2 %s venceu a comparação de PIB, com %.2f bilhões de reais. \n", NomedaCidade2, PIB2);
-        }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem o mesmo PIB com %.2f bilhões de reais. \n", NomedaCidade1, NomedaCidade2, PIB1);
-        }
-        break;
-    case 4:
-        if (NumerodePontosTuristicos1 > NumerodePontosTuristicos2)
-        {
-            printf("Cidade 1 %s venceu a comparação de pontos turísticos, com %i pontos. \n", NomedaCidade1, NumerodePontosTuristicos1);
-        }
-        else if (NumerodePontosTuristicos2 > NumerodePontosTuristicos1)
-        {
-            printf("Cidade 2 %s venceu a comparação de pontos turísticos, com %i pontos. \n", NomedaCidade2, NumerodePontosTuristicos2);
-        }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem o mesmo número de pontos turísticos com %i pontos. \n", NomedaCidade1, NomedaCidade2, NumerodePontosTuristicos1);
-        }
-        break;
-    case 5:
-        if (DensidadePopulacional1 < DensidadePopulacional2)
-        {
-            printf("Cidade 1 %s venceu a comparação de densidade populacional, com %.2f habitantes/km². \n", NomedaCidade1, DensidadePopulacional1);
-        }
-        else if (DensidadePopulacional2 < DensidadePopulacional1)
-        {
-            printf("Cidade 2 %s venceu a comparação de densidade populacional, com %.2f habitantes/km². \n", NomedaCidade2, DensidadePopulacional2);
-        }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem a mesma densidade populacional com %.2f habitantes/km². \n", NomedaCidade1, NomedaCidade2, DensidadePopulacional1);
-        }
-        break;
-    case 6:
-        if (PIBperCapita1 > PIBperCapita2)
-        {
-            printf("Cidade 1 %s venceu a comparação de PIB per capita, com %.2f reais. \n", NomedaCidade1, PIBperCapita1);
-        }
-        else if (PIBperCapita2 > PIBperCapita1)
-        {
-            printf("Cidade 2 %s venceu a comparação de PIB per capita, com %.2f reais. \n", NomedaCidade2, PIBperCapita2);
-        }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem o mesmo PIB per capita com %.2f reais. \n", NomedaCidade1, NomedaCidade2, PIBperCapita1);
-        }
-        break;
-    case 7:
-        if (SuperPower1 > SuperPower2)
-        {
-            printf("Cidade 1 %s venceu a comparação de Super Power, com %.2f pontos. \n", NomedaCidade1, SuperPower1);
-        }
-        else if (SuperPower2 > SuperPower1)
-        {
-            printf("Cidade 2 %s venceu a comparação de Super Power, com %.2f pontos. \n", NomedaCidade2, SuperPower2);
-        }
-        else
-        {
-            printf("As cidades %s e %s empataram, por terem o mesmo Super Power com %.2f pontos. \n", NomedaCidade1, NomedaCidade2, SuperPower1);
-        }
-        break;
-    default:
-        printf("Opção inválida. Por favor, escolha um número entre 1 e 7. \n");
-        break;
+
+        
+        printf ("### Resultado da Comparação ### \n");
+        printf("Cidade 1: %s | Cidade 2: %s \n", NomedaCidade1, NomedaCidade2);
+        printf("Atributo 1: %s | Valor: %.2f \n", AtributoEscolhido1, valorsoma1);
+        printf("Atributo 2: %s | Valor: %.2f \n", AtributoEscolhido2, valorsoma2);
     }
 
     return 0;
