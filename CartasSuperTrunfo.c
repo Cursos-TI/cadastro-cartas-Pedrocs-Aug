@@ -83,10 +83,13 @@ int main()
     int comparacao1, comparacao2,
         vencedor1 = 0, vencedor2 = 0;
 
-    float valorsoma1, valorsoma2,
-        valortotal;
+    float atributovencedor1, atributovencedor2,
+        atributoperdedor1, atributoperdedor2,
+        somaatributoperdedor,
+        somaatributovencedor;
 
-    char AtributoEscolhido1[30], AtributoEscolhido2[30];
+    char AtributoEscolhido1[30], AtributoEscolhido2[30],
+        cidadevencedora[30], cidadeperdedora[30];
 
     printf("### Primeira Comparação entre as cidades ### \n");
     printf("Escolha o primeiro atributo para comparar as cidades: \n");
@@ -109,104 +112,3 @@ int main()
     printf("6 - PIB per Capita \n");
     printf("7 - Super Power \n");
     scanf("%i", &comparacao2);
-
-    if (comparacao1 == comparacao2)
-    {
-        printf("A opção segunda opção escolhida é igual a primeira, por favor escolha uma opção diferente.\n");
-    }
-    else
-    {
-        switch (comparacao1)
-        {
-        case 1:
-            vencedor1 = População1 > População2 ? 1 : 2;
-            valorsoma1 = População1 > População2 ? População1 : População2;
-            strcpy(AtributoEscolhido1, "População");
-            break;
-        case 2:
-            vencedor1 = Areaemkm1 > Areaemkm2 ? 1 : 2;
-            valorsoma1 = Areaemkm1 > Areaemkm2 ? Areaemkm1 : Areaemkm2;
-            strcpy(AtributoEscolhido1, "Área");
-            break;
-        case 3:
-            vencedor1 = PIB1 > PIB2 ? 1 : 2;
-            valorsoma1 = PIB1 > PIB2 ? PIB1 : PIB2;
-            strcpy(AtributoEscolhido1, "PIB");
-            break;
-        case 4:
-            vencedor1 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? 1 : 2;
-            valorsoma1 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? NumerodePontosTuristicos1 : NumerodePontosTuristicos2;
-            strcpy(AtributoEscolhido1, "Número de Pontos Turísticos");
-            break;
-        case 5:
-            vencedor1 = DensidadePopulacional1 > DensidadePopulacional2 ? 1 : 2;
-            valorsoma1 = DensidadePopulacional1 > DensidadePopulacional2 ? DensidadePopulacional1 : DensidadePopulacional2;
-            strcpy(AtributoEscolhido1, "Densidade Populacional");
-            break;
-        case 6:
-            vencedor1 = PIBperCapita1 > PIBperCapita2 ? 1 : 2;
-            valorsoma1 = PIBperCapita1 > PIBperCapita2 ? PIBperCapita1 : PIBperCapita2;
-            strcpy(AtributoEscolhido1, "PIB per Capita");
-
-            break;
-        case 7:
-            vencedor1 = SuperPower1 > SuperPower2 ? 1 : 2;
-            valorsoma1 = SuperPower1 > SuperPower2 ? SuperPower1 : SuperPower2;
-            strcpy(AtributoEscolhido1, "Super Power");
-            break;
-        default:
-            printf("Opção inválida. Por favor, escolha um número entre 1 e 7. \n");
-            break;
-        }
-
-        switch (comparacao2)
-        {
-        case 1:
-            vencedor2 = População1 > População2 ? 1 : 2;
-            valorsoma2 = População1 > População2 ? População1 : População2;
-            strcpy(AtributoEscolhido2, "População");
-            break;
-        case 2:
-            vencedor2 = Areaemkm1 > Areaemkm2 ? 1 : 2;
-            valorsoma2 = Areaemkm1 > Areaemkm2 ? Areaemkm1 : Areaemkm2;
-            strcpy(AtributoEscolhido2, "Área (km²)");
-            break;
-        case 3:
-            vencedor2 = PIB1 > PIB2 ? 1 : 2;
-            valorsoma2 = PIB1 > PIB2 ? PIB1 : PIB2;
-            strcpy(AtributoEscolhido2, "PIB");
-            break;
-        case 4:
-            vencedor2 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? 1 : 2;
-            valorsoma2 = NumerodePontosTuristicos1 > NumerodePontosTuristicos2 ? NumerodePontosTuristicos1 : NumerodePontosTuristicos2;
-            strcpy(AtributoEscolhido2, "Número de Pontos Turísticos");
-            break;
-        case 5:
-            vencedor2 = DensidadePopulacional1 > DensidadePopulacional2 ? 1 : 2;
-            valorsoma2 = DensidadePopulacional1 > DensidadePopulacional2 ? DensidadePopulacional1 : DensidadePopulacional2;
-            strcpy(AtributoEscolhido2, "Densidade Populacional");
-            break;
-        case 6:
-            vencedor2 = PIBperCapita1 > PIBperCapita2 ? 1 : 2;
-            valorsoma2 = PIBperCapita1 > PIBperCapita2 ? PIBperCapita1 : PIBperCapita2;
-            strcpy(AtributoEscolhido2, "PIB per Capita");
-            break;
-        case 7:
-            vencedor2 = SuperPower1 > SuperPower2 ? 1 : 2;
-            valorsoma2 = SuperPower1 > SuperPower2 ? SuperPower1 : SuperPower2;
-            strcpy(AtributoEscolhido2, "Super Power");
-            break;
-        default:
-            printf("Opção inválida. Por favor, escolha um número entre 1 e 7. \n");
-            break;
-        }
-
-        
-        printf ("### Resultado da Comparação ### \n");
-        printf("Cidade 1: %s | Cidade 2: %s \n", NomedaCidade1, NomedaCidade2);
-        printf("Atributo 1: %s | Valor: %.2f \n", AtributoEscolhido1, valorsoma1);
-        printf("Atributo 2: %s | Valor: %.2f \n", AtributoEscolhido2, valorsoma2);
-    }
-
-    return 0;
-}
