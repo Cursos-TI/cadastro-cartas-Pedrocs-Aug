@@ -112,3 +112,28 @@ int main()
     printf("6 - PIB per Capita \n");
     printf("7 - Super Power \n");
     scanf("%i", &comparacao2);
+
+    // Comparação do primeiro atributo escolhido
+    switch (comparacao1)
+    case 1:
+        if (População1 > População2)
+        {
+            vencedor1++;
+            atributovencedor1 = (float)População1;
+            atributoperdedor1 = (float)População2;
+            strcpy(cidadevencedora, NomedaCidade1);
+            strcpy(cidadeperdedora, NomedaCidade2);
+        }
+        else if (População2 > População1)
+        {
+            vencedor2++;
+            atributovencedor1 = (float)População2;
+            atributoperdedor1 = (float)População1;
+            strcpy(cidadevencedora, NomedaCidade2);
+            strcpy(cidadeperdedora, NomedaCidade1);
+        }
+        else
+        {
+            printf("Empate na comparação de população! \n");
+        }
+        break;
